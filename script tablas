@@ -1,0 +1,37 @@
+CREATE SCHEMA bienczak;
+USE bienczak;
+
+CREATE TABLE camionero(
+	id INT, 
+    nombre VARCHAR(45),
+    telefono VARCHAR(45),
+    direccion VARCHAR(45),
+    id_vehiculo INT
+);
+CREATE TABLE vehiculo(
+	id INT, 
+    tipo VARCHAR(45),
+    modelo VARCHAR(45),
+    patente VARCHAR(45),
+    capacidad_de_carga VARCHAR(20),
+    kilometros VARCHAR(45)
+);
+CREATE TABLE pedido(
+	id INT, 
+    id_cliente INT,
+    id_vehiculo INT,
+    descripcion VARCHAR(45),
+    localidad VARCHAR(20)
+    );
+    CREATE TABLE cliente(
+	id INT, 
+    id_cliente INT,
+    tipo_de_pago VARCHAR(45),
+    nombre VARCHAR(45),
+    localidad VARCHAR(20)
+    );
+     CREATE TABLE ciudad(
+	id INT, 
+    pais VARCHAR(45),
+    distancia_desde_CBA VARCHAR(45)
+    );
