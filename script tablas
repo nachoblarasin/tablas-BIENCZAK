@@ -1,37 +1,44 @@
 CREATE SCHEMA bienczak;
 USE bienczak;
 
-CREATE TABLE camionero(
-	id INT, 
-    nombre VARCHAR(45),
-    telefono VARCHAR(45),
-    direccion VARCHAR(45),
-    id_vehiculo INT
+CREATE TABLE vehiculos (
+    id_vehiculo INT PRIMARY KEY,
+    tipo VARCHAR(50),
+    modelo VARCHAR(100),
+    patente VARCHAR(20),
+    capacidad_de_carga DECIMAL(10, 2),
+    kilometros INT
 );
-CREATE TABLE vehiculo(
-	id INT, 
-    tipo VARCHAR(45),
-    modelo VARCHAR(45),
-    patente VARCHAR(45),
-    capacidad_de_carga VARCHAR(20),
-    kilometros VARCHAR(45)
-);
-CREATE TABLE pedido(
-	id INT, 
-    id_cliente INT,
+
+CREATE TABLE camioneros (
+    id_camionero INT PRIMARY KEY,
+    nombre VARCHAR(255),
+    telefono VARCHAR(15),
+    direccion VARCHAR(255),
     id_vehiculo INT,
-    descripcion VARCHAR(45),
-    localidad VARCHAR(20)
-    );
-    CREATE TABLE cliente(
-	id INT, 
-    id_cliente INT,
-    tipo_de_pago VARCHAR(45),
-    nombre VARCHAR(45),
-    localidad VARCHAR(20)
-    );
-     CREATE TABLE ciudad(
-	id INT, 
-    pais VARCHAR(45),
-    distancia_desde_CBA VARCHAR(45)
-    );
+    FOREIGN KEY (id_vehiculo) REFERENCES vehiculos(id_vehiculo)
+);
+
+CREATE TABLE ciudad (
+    id_ciudad INT PRIMARY KEY,
+    nombre VARCHAR(255),
+    pais VARCHAR(100),
+    distancia_desde_cordoba DECIMAL(10, 2)
+);
+
+CREATE TABLE cliente (
+    id_cliente INT PRIMARY KEY,
+    tipo_de_pago VARCHAR(50),
+    nombre VARCHAR(255),
+    provincia VARCHAR(100)
+);
+
+CREATE TABLE pedido (
+    id_pedido INT PRIMARY KEY,
+    id_ciudad INT,
+    id_camionero INT,
+    descripcion TEXT,
+    provincia VARCHAR(100),
+    FOREIGN KEY FK_pedido_ciudad (id_ciudad) REFERENCES ciudad(id_ciudad),
+    FOREIGN KEY FK_pedido_camionero (id_camionero) REFERENCES camioneros(id_camionero)
+);
