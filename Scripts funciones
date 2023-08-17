@@ -1,0 +1,27 @@
+DELIMITER //
+
+CREATE FUNCTION calcularTotalKilometros(id_camionero INT) RETURNS INT
+ READS SQL DATA
+ BEGIN
+     DECLARE totalKilometros INT;
+     SELECT SUM(kilometros) INTO totalKilometros FROM vehiculos WHERE id_vehiculo = id_camionero;
+     RETURN totalKilometros;
+ END;
+
+//
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE FUNCTION calcularPromedioCapacidadCarga() RETURNS DECIMAL(10, 2)
+ READS SQL DATA
+ BEGIN
+     DECLARE promedio DECIMAL(10, 2);
+     SELECT AVG(capacidad_de_carga) INTO promedio FROM vehiculos;
+     RETURN promedio;
+ END;
+
+//
+
+DELIMITER ;
