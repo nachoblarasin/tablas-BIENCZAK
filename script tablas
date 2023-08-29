@@ -1,5 +1,5 @@
 CREATE SCHEMA bienczak;
-USE bienczak;
+use bienczak;
 
 CREATE TABLE vehiculos (
     id_vehiculo INT PRIMARY KEY,
@@ -42,3 +42,23 @@ CREATE TABLE pedido (
     FOREIGN KEY FK_pedido_ciudad (id_ciudad) REFERENCES ciudad(id_ciudad),
     FOREIGN KEY FK_pedido_camionero (id_camionero) REFERENCES camioneros(id_camionero)
 );
+
+ALTER TABLE cliente
+ADD COLUMN usuario VARCHAR(50),
+ADD COLUMN fecha DATE,
+ADD COLUMN hora TIME;
+
+ALTER TABLE pedido
+ADD COLUMN usuario VARCHAR(50),
+ADD COLUMN fecha DATE,
+ADD COLUMN hora TIME;
+
+ALTER TABLE pedido
+ADD COLUMN estado VARCHAR(20);
+
+ALTER TABLE cliente
+DROP COLUMN provincia;
+
+ALTER TABLE cliente
+ADD COLUMN id_ciudad INT,
+ADD FOREIGN KEY (id_ciudad) REFERENCES ciudad(id_ciudad);
