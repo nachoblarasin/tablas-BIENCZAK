@@ -1,0 +1,31 @@
+CREATE VIEW vista_clientes_con_ciudad AS
+SELECT c.id_cliente, c.tipo_de_pago, c.nombre AS nombre_cliente, ci.nombre AS nombre_ciudad, ci.pais
+FROM cliente c
+JOIN ciudad ci ON c.id_ciudad = ci.id_ciudad;
+
+CREATE OR REPLACE VIEW vista_pedidos_enviados_con_camionero AS
+SELECT p.id_pedido, p.descripcion, ci.nombre AS nombre_ciudad, v.nombre AS nombre_camionero, v.telefono AS telefono_camionero
+FROM pedido p
+JOIN camioneros v ON p.id_camionero = v.id_camionero
+JOIN ciudad ci ON p.id_ciudad = ci.id_ciudad
+WHERE p.estado = 'Enviado';
+
+CREATE OR REPLACE VIEW vista_resumen_capacidad_carga_ciudad AS
+SELECT ci.nombre AS nombre_ciudad, SUM(veh.capacidad_de_carga) AS capacidad_total
+FROM ciudad ci
+JOIN camioneros cam ON ci.id_ciudad = cam.id_ciudad
+JOIN vehiculos veh ON cam.id_vehiculo = veh.id_vehiculo
+GROUP BY ci.nombre;
+
+CREATE OR REPLACE VIEW vista_clientes_con_promedio_carga AS
+SELECT c.id_cliente, c.nombre AS nombre_cliente, ci.nombre AS nombre_ciudad, AVG(veh.capacidad_de_carga) AS promedio_carga
+FROM cliente c
+JOIN ciudad ci ON c.id_ciudad = ci.id_ciudad
+JOIN camioneros cam ON ci.id_ciudad = cam.id_ciudad
+JOIN vehiculos veh ON cam.id_vehiculo = veh.id_vehiculo
+GROUP BY c.id_cliente;
+
+CREATE OR REPLACE VIEW vista_resumen_pedidos_por_estado AS
+SELECT p.estado, COUNT(*) AS cantidad_pedidos
+FROM pedido p
+GROUP BY p.estado;
