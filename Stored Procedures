@@ -1,0 +1,26 @@
+use bienczak;
+DELIMITER //
+CREATE PROCEDURE sp_agregar_cliente(
+    IN tipo_pago VARCHAR(20),
+    IN nombre_cliente VARCHAR(100),
+    IN provincia_cliente VARCHAR(50)
+)
+BEGIN
+    INSERT INTO cliente (tipo_de_pago, nombre, provincia)
+    VALUES (tipo_pago, nombre_cliente, provincia_cliente);
+END;
+//
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE sp_actualizar_estado_pedido(
+    IN id_pedido INT,
+    IN nuevo_estado VARCHAR(20)
+)
+BEGIN
+    UPDATE pedido
+    SET estado = nuevo_estado
+    WHERE id_pedido = id_pedido;
+END;
+//
+DELIMITER ;
