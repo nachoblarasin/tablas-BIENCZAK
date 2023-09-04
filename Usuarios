@@ -1,0 +1,9 @@
+use bienczak;
+
+CREATE USER 'facundo_palacios'@'localhost' IDENTIFIED BY 'morado';
+GRANT SELECT ON bienczak.* TO 'facundo_palacios'@'localhost';
+
+
+CREATE USER 'renato_tarditti'@'localhost' IDENTIFIED BY 'belgrano';
+GRANT SELECT, INSERT, UPDATE ON bienczak.* TO 'renato_tarditti'@'localhost';
+
