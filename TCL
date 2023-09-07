@@ -1,0 +1,27 @@
+use bienczak;
+
+START TRANSACTION;
+DELETE FROM camioneros WHERE id_camionero IN (2, 4);
+ROLLBACK;
+COMMIT;
+
+------------------------------------------------------------------
+
+START TRANSACTION;
+INSERT INTO vehiculos (tipo, modelo, patente, capacidad_de_carga, kilometros)
+VALUES
+    (6, 'Camion', 'Iveco Stralis 480', 'ABC 123', 20000.00, 125000),
+    (7, 'Camion', 'Scania R450', 'XYZ 789', 24000.00, 180000),
+    (8, 'Grua', 'Liebherr LTM 1200', 'JKL 456', 60000.00, 25000),
+    (9, 'Grua', 'Terex Demag AC 700', 'MNO 987', 100000.00, 75000);
+    SAVEPOINT savepoint_1;
+
+INSERT INTO vehiculos (tipo, modelo, patente, capacidad_de_carga, kilometros)
+VALUES
+	(10, 'Camion', 'Volvo FH16 750', 'DEF 321', 32000.00, 30000),
+    (11, 'Camion', 'MAN TGX 18.640', 'GHI 654', 18640.00, 22000),
+    (12, 'Grua', 'Liebherr LTM 1300-6.2', 'PQR 555', 80000.00, 42000),
+    (13, 'Camion', 'DAF XF 105.510', 'STU 888', 24000.00, 28000);
+    SAVEPOINT savepoint_2;
+
+RELEASE savepoint_1;
