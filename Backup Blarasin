@@ -1,0 +1,105 @@
+-- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+--
+-- Host: localhost    Database: bienczak
+
+-- Backup de Datos de las siguientes tablas:
+-- - camioneros
+-- - ciudad
+-- - cliente
+-- - cliente_bitacora
+-- - pedido
+-- - pedido_bitacora
+-- - vehiculos
+
+-- ------------------------------------------------------
+-- Server version	8.0.33
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Dumping data for table `camioneros`
+--
+
+LOCK TABLES `camioneros` WRITE;
+/*!40000 ALTER TABLE `camioneros` DISABLE KEYS */;
+INSERT INTO `camioneros` VALUES (1,'Nicolas Marcuzzi','3517927823','Espinosa negrete 289',4,NULL),(2,'Tomas Kuran','3519304291','Herrera y Guzman 308',1,NULL),(3,'Alan Gebhart','3518392048','Del Cabildo 2802',5,NULL),(4,'Juan Cruz Perez','3513038889','Luciano de Figueroa 207',2,NULL),(5,'Luciano Aliendo','3515993201','Alonso de Ubeda 3810',3,NULL);
+/*!40000 ALTER TABLE `camioneros` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `ciudad`
+--
+
+LOCK TABLES `ciudad` WRITE;
+/*!40000 ALTER TABLE `ciudad` DISABLE KEYS */;
+INSERT INTO `ciudad` VALUES (1,'Buenos Aires','Argentina',759.00),(2,'Cordoba','Argentina',83.00),(3,'Santiago de Chile','Chile',1854.00),(4,'Santa Fe','Argentina',452.00),(5,'Santa Cruz','Argentina',958.00);
+/*!40000 ALTER TABLE `ciudad` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `cliente`
+--
+
+LOCK TABLES `cliente` WRITE;
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (1,'CUENTA CORRIENTE','CLARO SRL',NULL,NULL,NULL,NULL),(2,'CHEQUE PROPIO A 15 DIAS','ASTORI ESTRUCTURAS SA',NULL,NULL,NULL,NULL),(3,'CHEQUE DE TERCEROS A 30 DIAS','PALMAR SA',NULL,NULL,NULL,NULL),(4,'TRANSFERENCIA','RUBEN GIARDI',NULL,NULL,NULL,NULL),(5,'EFECTIVO','LA COLORADA SRL',NULL,NULL,NULL,NULL),(6,'CUENTA CORRIENTE','INTENDENCIA DE TOTORAL',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `cliente_bitacora`
+--
+
+LOCK TABLES `cliente_bitacora` WRITE;
+/*!40000 ALTER TABLE `cliente_bitacora` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cliente_bitacora` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `pedido`
+--
+
+LOCK TABLES `pedido` WRITE;
+/*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
+INSERT INTO `pedido` VALUES (1,2,3,'Colocacion de placas de Astori Estructuras','Cordoba',NULL,NULL,NULL,NULL),(2,1,5,'Rollos de cable de Claro','Buenos Aires',NULL,NULL,NULL,NULL),(3,3,4,'Mudanza de Ruben Giardi','Santiago de Chile, Chile',NULL,NULL,NULL,NULL),(4,5,2,'Montaje de columnas para Palmar','Santa Cruz',NULL,NULL,NULL,NULL),(5,4,1,'46 palets de ladrillos Palmar','Cordoba',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `pedido_bitacora`
+--
+
+LOCK TABLES `pedido_bitacora` WRITE;
+/*!40000 ALTER TABLE `pedido_bitacora` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pedido_bitacora` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `vehiculos`
+--
+
+LOCK TABLES `vehiculos` WRITE;
+/*!40000 ALTER TABLE `vehiculos` DISABLE KEYS */;
+INSERT INTO `vehiculos` VALUES (1,'Grua','TransGruma 50 tn','AC 678 FH',50000.00,91940),(2,'Camion','Mercedes Benz Accelo 815','AA 289 SA',5000.00,454927),(3,'Camion','Mercedes Benz Atego 1729/42','NFH 895',18500.00,849482),(4,'Camion','Mercedes Benz Axor 1933','AD 338 OP',37000.00,197904),(5,'Grua','TransGruma 90 tn','OUH 758',90000.00,48938);
+/*!40000 ALTER TABLE `vehiculos` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-09-11 21:08:47
